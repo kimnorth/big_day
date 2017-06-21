@@ -5,7 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise'
 
+gem 'rack-cors', :require => 'rack/cors'
+# rack-cors gem allows us to multiple origin servers eventually (express & rails)
+gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use Puma as the app server

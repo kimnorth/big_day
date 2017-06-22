@@ -4,12 +4,14 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    records = Record.all
+    render json: records
   end
 
   # GET /records/1
   # GET /records/1.json
   def show
+    render json: @record
   end
 
   # GET /records/new
@@ -24,17 +26,18 @@ class RecordsController < ApplicationController
   # POST /records
   # POST /records.json
   def create
-    @record = Record.new(record_params)
+    record = Record.create(record_params)
 
-    respond_to do |format|
-      if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
-        format.json { render :show, status: :created, location: @record }
-      else
-        format.html { render :new }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @record.save
+    #     format.html { redirect_to @record, notice: 'Record was successfully created.' }
+    #     format.json { render :show, status: :created, location: @record }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @record.errors, status: :unprocessable_entity }
+    #   end
+    # end
+    render json: record
   end
 
   # PATCH/PUT /records/1
@@ -67,8 +70,9 @@ class RecordsController < ApplicationController
       @record = Record.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through. To put back 
+    # replace :user_id with :references
     def record_params
-      params.require(:record).permit(:date, :today_total, :today_consumed, :today_exercise, :references)
+      params.require(:record).permit(:date, :today_total, :today_consumed, :today_exercise, :user_id)
     end
 end

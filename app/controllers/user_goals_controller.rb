@@ -5,6 +5,7 @@ class UserGoalsController < ApplicationController
   # GET /user_goals.json
   def index
     @user_goals = UserGoal.all
+    render json: @user_goals
   end
 
   # GET /user_goals/1

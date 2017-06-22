@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  target: 1.5
+  current: 1.5
+  references: 
+
+two:
+  target: 1.5
+  current: 1.5
+  references: 

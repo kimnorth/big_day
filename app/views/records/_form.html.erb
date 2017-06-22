@@ -1,0 +1,42 @@
+<%= form_with(model: record, local: true) do |form| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :record_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :today_total %>
+    <%= form.number_field :today_total, id: :record_today_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :today_consumed %>
+    <%= form.number_field :today_consumed, id: :record_today_consumed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :today_exercise %>
+    <%= form.number_field :today_exercise, id: :record_today_exercise %>
+  </div>
+
+  <div class="field">
+    <%= form.label :references %>
+    <%= form.text_field :references, id: :record_references %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

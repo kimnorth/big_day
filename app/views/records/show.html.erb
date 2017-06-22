@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @record.date %>
+</p>
+
+<p>
+  <strong>Today total:</strong>
+  <%= @record.today_total %>
+</p>
+
+<p>
+  <strong>Today consumed:</strong>
+  <%= @record.today_consumed %>
+</p>
+
+<p>
+  <strong>Today exercise:</strong>
+  <%= @record.today_exercise %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @record.references %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

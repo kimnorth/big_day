@@ -8,11 +8,6 @@
 
 User.delete_all
 
-user1 = User.new(email: "email1@email.com", password: "123456")
+user1 = User.new(email: "email1@email.com", password: "123456", 
+		firstname: "Joe", lastname: "Smith", username: "joeysmithy")
 user1.save
-
-user2 = User.new(email: "email2@email.com", password: "123456")
-user2.save
-
-user3 = User.new(email: "email3@email.com", password: "123456")
-user3.save

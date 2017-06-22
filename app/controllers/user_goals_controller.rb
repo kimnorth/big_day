@@ -25,17 +25,8 @@ class UserGoalsController < ApplicationController
   # POST /user_goals
   # POST /user_goals.json
   def create
-    @user_goal = UserGoal.new(user_goal_params)
-
-    respond_to do |format|
-      if @user_goal.save
-        format.html { redirect_to @user_goal, notice: 'User goal was successfully created.' }
-        format.json { render :show, status: :created, location: @user_goal }
-      else
-        format.html { render :new }
-        format.json { render json: @user_goal.errors, status: :unprocessable_entity }
-      end
-    end
+    @user_goal = UserGoal.create(user_goal_params)
+    render json: @user_goal
   end
 
   # PATCH/PUT /user_goals/1
@@ -70,6 +61,6 @@ class UserGoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_goal_params
-      params.require(:user_goal).permit(:target, :current, :references)
+      params.require(:user_goal).permit(:target, :current, :user_id)
     end
 end

@@ -27,16 +27,6 @@ class RecordsController < ApplicationController
   # POST /records.json
   def create
     record = Record.create(record_params)
-
-    # respond_to do |format|
-    #   if @record.save
-    #     format.html { redirect_to @record, notice: 'Record was successfully created.' }
-    #     format.json { render :show, status: :created, location: @record }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @record.errors, status: :unprocessable_entity }
-    #   end
-    # end
     render json: record
   end
 
